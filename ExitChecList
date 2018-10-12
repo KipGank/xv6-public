@@ -1,25 +1,18 @@
-usertests.asm
-usertests.sym
-makefile
-usertests.c
-wc.c
-mkdir.c
-rm.c
-stressfs.asm
-mkdir.sym
-proc.c
-sh.asm
-zombie.c
-rm.asm
-mkdir.asm
-syscall.h
-mkfs.c
-grep.asm
-ln.asm
-sign.placed
-kill.c
-sysproc.c
-wc.asm
-sh.c
-echo.asm
-user.h
+This file is proof of Marvin De La Cruz's and Ian Bonafede's project
+
+usertests.c               in progress        needs review
+wc.c                      in progress        needs review
+mkdir.c                   in progress        needs review
+rm.c                      in progress        needs review
+stressfs.c                in progress        needs review
+proc.c                    in progress        needs review
+zombie.c                  in progress        needs review
+ln.c                      in progress        needs review
+kill.c                    in progress        needs review
+sysproc.c                 in progress        needs review
+sh.c                      in progress        needs review
+user.h                    in progress        needs review
+defs.h                    in progress        needs review
+init.c                    in progress        needs review
+
+
