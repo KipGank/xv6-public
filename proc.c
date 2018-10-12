@@ -230,7 +230,8 @@ exit(int status)
   struct proc *curproc = myproc();
   struct proc *p;
   int fd;
-
+  //int status; 
+  curproc->exitstatus = status; 
   if(curproc == initproc)
     panic("init exiting");
 
