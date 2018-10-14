@@ -1,5 +1,10 @@
 This file is proof of Marvin De La Cruz's and Ian Bonafede's project
 
+exit
+
+-1 shows process did not successfully close
+0  shows it did successfully close
+
 usertests.c               in progress        needs review
 wc.c                      in progress        needs review
 mkdir.c                   in progress        needs review
@@ -14,5 +19,18 @@ sh.c                      in progress        needs review
 user.h                    in progress        needs review
 defs.h                    in progress        needs review
 init.c                    in progress        needs review
+
+
+wait
+
+
+
+forktest.c
+init.c
+sh.c
+stressfs.c
+syscall.c
+sysproc.c
+usertests.c
 
 
