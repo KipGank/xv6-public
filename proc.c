@@ -12,7 +12,7 @@
 struct {
   struct spinlock lock;
   struct proc proc[NPROC];
-} ptable;
+} ptable; 
 
 static struct proc *initproc;
 
@@ -279,10 +279,6 @@ wait(int *status)
   int havekids, pid;
   struct proc *curproc = myproc();
   
-  if(status) {
-    *status = p->exitstatus;
-  }
-  
   acquire(&ptable.lock);
   for(;;){
     // Scan through table looking for exited children.
@@ -303,6 +299,10 @@ wait(int *status)
         p->killed = 0;
         p->state = UNUSED;
         release(&ptable.lock);
+        if(status) 
+          {
+            *status = p->exitstatus;
+          }
         return pid;
       }
     }
