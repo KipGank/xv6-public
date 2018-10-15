@@ -555,7 +555,7 @@ waitpid(int pid, int *status, int options)
       if(p->parent != curproc)
         continue;
       havekids = 1;
-      if(p->state == ZOMBIE){
+      if(p->state == ZOMBIE && (p->pid == pid)){
         // Found one.
         pid = p->pid;
         kfree(p->kstack);
