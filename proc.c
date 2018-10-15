@@ -543,8 +543,8 @@ procdump(void)
 int 
 waitpid(int pid, int *status, int options)
 {
- struct proc *p;
-  int havekids, pid;
+  struct proc *p;
+  int havekids, zpid;
   struct proc *curproc = myproc();
   
   acquire(&ptable.lock);
@@ -557,7 +557,7 @@ waitpid(int pid, int *status, int options)
       havekids = 1;
       if(p->state == ZOMBIE && (p->pid == pid)){
         // Found one.
-        pid = p->pid;
+        zpid = p->pid;
         kfree(p->kstack);
         p->kstack = 0;
         freevm(p->pgdir);
@@ -571,7 +571,7 @@ waitpid(int pid, int *status, int options)
           {
             *status = p->exitstatus;
           }
-        return pid;
+        return zpid;
       }
     }
 
