@@ -181,6 +181,7 @@ UPROGS=\
 	_usertests\
 	_wc\
 	_zombie\
+	lab1.c #THIS IS NEW CODE TO THE MAKEFILE 
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)
