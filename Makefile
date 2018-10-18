@@ -27,6 +27,7 @@ OBJS = \
 	uart.o\
 	vectors.o\
 	vm.o\
+	lab1.o\
 
 # Cross-compiling (e.g., on Mac OS X)
 # TOOLPREFIX = i386-jos-elf
@@ -181,7 +182,9 @@ UPROGS=\
 	_usertests\
 	_wc\
 	_zombie\
-	lab1.c #THIS IS NEW CODE TO THE MAKEFILE 
+	_lab1\
+	
+	#THIS IS NEW CODE TO THE MAKEFILE 
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)

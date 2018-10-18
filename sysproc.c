@@ -21,6 +21,11 @@ sys_exit(int status)
   return 0;  // not reached
 }
 
+int sys_waitpid(int pid, int *status, int options) 
+{
+  return waitpid(pid, status, options);
+}
+
 int
 sys_wait(int *status)
 {
