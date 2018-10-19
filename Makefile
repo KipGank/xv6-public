@@ -27,7 +27,7 @@ OBJS = \
 	uart.o\
 	vectors.o\
 	vm.o\
-	lab1.o\
+	
 
 # Cross-compiling (e.g., on Mac OS X)
 # TOOLPREFIX = i386-jos-elf

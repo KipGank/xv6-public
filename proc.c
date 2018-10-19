@@ -233,7 +233,6 @@ exit(int status)
   struct proc *p;
   int fd;
   //int status; 
-  curproc->exitstatus = status; 
   if(curproc == initproc)
     panic("init exiting");
 
@@ -266,6 +265,7 @@ exit(int status)
 
   // Jump into the scheduler, never to return.
   curproc->state = ZOMBIE;
+  curproc->exitstatus = status; //NEW CODE
   sched();
   panic("zombie exit");
 }
@@ -273,7 +273,7 @@ exit(int status)
 // Wait for a child process to exit and return its pid.
 // Return -1 if this process has no children.
 int
-wait(int *status)
+wait(int* status)
 {
   struct proc *p;
   int havekids, pid;
@@ -299,10 +299,7 @@ wait(int *status)
         p->killed = 0;
         p->state = UNUSED;
         release(&ptable.lock);
-        if(status) 
-          {
-            *status = p->exitstatus;
-          }
+        *status = p->exitstatus; //NEW CODE
         return pid;
       }
     }
@@ -552,10 +549,10 @@ waitpid(int pid, int *status, int options)
     // Scan through table looking for exited children.
     havekids = 0;
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      if(p->parent != curproc)
+      if(p->parent != curproc && (p->pid == pid))
         continue;
       havekids = 1;
-      if(p->state == ZOMBIE && (p->pid == pid)){
+      if(p->state == ZOMBIE){
         // Found one.
         zpid = p->pid;
         kfree(p->kstack);
