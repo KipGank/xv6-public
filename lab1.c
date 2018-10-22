@@ -66,8 +66,7 @@ int waitPid(void){
     pid_a[i] = fork();
 	
     if (pid_a[i] == 0) { // only the child executed this code
-     
-      
+   
       printf(1, "\n The is child with PID# %d and I will exit with status %d\n", getpid(), 0);
       exit(0);}}
        
