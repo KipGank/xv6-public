@@ -182,8 +182,8 @@ UPROGS=\
 	_usertests\
 	_wc\
 	_zombie\
-	_lab1\
 	_test\
+	_lab1\
 	
 	#THIS IS NEW CODE TO THE MAKEFILE 
 
