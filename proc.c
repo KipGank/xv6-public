@@ -384,14 +384,14 @@ scheduler(void)
         swtch(&(c->scheduler), priorityP->context);
   
         switchkvm();
+        
+        priorityP->priority += 1;
+        priorityP->waitTime = 0.0;
   
         // Process is done running for now.
         // It should have changed its p->state before coming back.
         c->proc = 0;
         
-        //we need to set the priority after we run it!!!!!!!!!!!!!!!!!!!
-        priorityP->priority += 1;
-        priorityP->waitTime = 0.0;
       }
     }
     

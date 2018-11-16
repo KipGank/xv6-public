@@ -1,12 +1,36 @@
 #include "types.h"
 #include "user.h"
 
+int test(void)
+{
+  int pid = fork(); 
+  int i = 0;
+  
+  if(pid == 0)
+  {
+    for(i = 0; i < 1000; ++i)
+    {
+      printf(1,"PROCESS 1\n");
+    }
+    exit(0);
+  }
+  else 
+  {
+    for(i = 0; i < 1000; ++i)
+    {
+      printf(1,"PROCESS 2\n");
+    }
+    exit(0);
+  }
+}
+
 int main(int argc, char *argv[])
 {
 	
 	int exitWait(void);
 	int waitPid(void);
 	int PScheduler(void);
+	int test(void); 
 
   printf(1, "\n This program tests the correctness of your lab#1\n");
   
@@ -16,6 +40,8 @@ int main(int argc, char *argv[])
 	waitPid();
   else if (atoi(argv[1]) == 3)
 	PScheduler();
+	else if (atoi(argv[1]) == 4)
+	test();
   else 
   printf(1, "\ntype \"lab1 1\" to test exit and wait, \"lab1 2\" to test waitpid and \"lab1 3\" to test the priority scheduler \n");
   
